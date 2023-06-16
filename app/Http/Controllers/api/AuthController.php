@@ -29,16 +29,17 @@ class AuthController extends Controller
             'user' => auth()->user()
         ], 200);
     }
-
+    
 
     public function Register(Request $request)
     {
         try {
+            error_log($request);
             $validate = Validator::make($request->all(), [
                 'name' => 'required',
-                'num_tel' => 'integer',
+                'num_tel' => 'string',
                 'email' => 'required|email|unique:users,email',
-                'password' => 'required|min:8',
+                'password' => 'required|min:6',
                 'role' => 'required',
             ]);
             if ($validate->fails()) {

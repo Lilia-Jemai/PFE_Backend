@@ -20,7 +20,7 @@ return new class extends Migration
             // $table->unsignedBigInteger('user_id');
             // $table->unsignedBigInteger('spec_id');
             //$table->string('Specialité');
-            $table->integer('num_tel');
+            $table->string('num_tel');
             $table->string('adresse');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('spec_id')->constrained('specialites')->onDelete('cascade');
